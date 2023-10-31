@@ -244,8 +244,6 @@ def main():
     ugit.pull_all()
     print("pulled done")
 
-    import main as mainScript
-    mainScript.main()
     
 if __name__ == "__main__":
     main()
