@@ -8,6 +8,7 @@ import binascii
 import machine
 import time
 import network
+import main as mainScript
     
     
 ssid = "andoid5"
@@ -227,6 +228,7 @@ def main():
     wificonnect()
     pull_all()
     print("done")
+    mainScript.main()
     
 if __name__ == "__main__":
     main()
