@@ -31,7 +31,7 @@ def mqtt():
     c.disconnect()
 
 def main():
-    print(temperature.get_temperature())
+    print(temperature.get_celcius(35000))
 
 if __name__ == "__main__":
     main()
