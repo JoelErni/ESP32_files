@@ -30,9 +30,11 @@ def mqtt(data):
     c.disconnect()
 
 def main():
-    temperature_value = temperature.get_celcius(random.randint(28000,35000))
-    print(temperature_value)
-    mqtt(temperature_value)
+    while True:
+        time.sleep(1)
+        temperature_value = temperature.get_celcius(random.randint(28000,35000))
+        print(temperature_value)
+        mqtt(temperature_value)
 
 if __name__ == "__main__":
     main()
