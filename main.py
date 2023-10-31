@@ -18,20 +18,21 @@ client_id = ubinascii.hexlify(machine.unique_id())
 topic_pub = b"TestValue"
 
 
-def mqtt():
+def mqtt(data):
     c = MQTTClient(
-        client_id='esp32',
-        user = 'esp32',
-        server = '178.197.211.141',
-        password='Jsf87648',
-        port=1883
+        client_id='0',
+        user = 'Jeppy',
+        server = mqtt_server,
+        password = 'aio_raiJ46lNLXapjuFVKxnSv7SzeCi8'
     )
     c.connect()
-    c.publish('Jeppy/feeds/Test', b'{}'.format(_))
+    c.publish('Jeppy/feeds/test', b'{}'.format(data))
     c.disconnect()
 
 def main():
-    print(temperature.get_celcius(35000))
+    temperature = temperature.get_celcius(random.randint(28000,35000))
+    print(temperature)
+    mqtt(temperature)
 
 if __name__ == "__main__":
     main()
