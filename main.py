@@ -22,7 +22,7 @@ def mqtt(data):
     c = MQTTClient(
         client_id='0',
         #user = 'Jeppy',
-        server = "185.80.65.82:1883",
+        server = "192.168.139.80",
         #password = 'aio_hmHz68Df4iapfQ67MxctYnMLaihZ'
     )
     c.connect()
@@ -36,4 +36,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
