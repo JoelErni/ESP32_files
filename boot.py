@@ -53,8 +53,6 @@ def pull_all(tree=call_trees_url,raw = raw,ignore = ignore,isconnected=False):
   tree = pull_git_tree()
   internal_tree = build_internal_tree()
   internal_tree = remove_ignore(internal_tree)
-  print(' ignore removed ----------------------')
-  print(internal_tree)
   log = []
   # download and save all files
   for i in tree['tree']:
@@ -70,7 +68,6 @@ def pull_all(tree=call_trees_url,raw = raw,ignore = ignore,isconnected=False):
         internal_tree = remove_item(i['path'],internal_tree)
       except:
         log.append(f'{i["path"]} del failed from int mem')
-        print('failed to delete old file')
       try:
         pull(i['path'],raw + i['path'])
         log.append(i['path'] + ' updated')
@@ -78,13 +75,13 @@ def pull_all(tree=call_trees_url,raw = raw,ignore = ignore,isconnected=False):
         log.append(i['path'] + ' failed to pull')
   # delete files not in Github tree
   if len(internal_tree) > 0:
-      print(internal_tree, ' leftover!')
       for i in internal_tree:
           os.remove(i)
           log.append(i + ' removed from int mem')
   logfile = open('ugit_log.py','w')
   logfile.write(str(log))
   logfile.close()
+  time.sleep(10)
   #return check instead return with global
 
 def wificonnect(ssid=ssid,password=password):
@@ -224,11 +221,12 @@ def backup():
 def main():
     wificonnect()
     pull_all()
-    print("done")
+    print("pulled done")
     mainScript.main()
     
 if __name__ == "__main__":
     main()
+
 
 
 
