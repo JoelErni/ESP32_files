@@ -23,7 +23,7 @@ def mqtt(data):
         client_id='0',
         user = 'Jeppy',
         server = mqtt_server,
-        password = 'aio_raiJ46lNLXapjuFVKxnSv7SzeCi8'
+        password = 'aio_eQrZ276SkfnmhgxGw1PPHtxgqK4C'
     )
     c.connect()
     c.publish('Jeppy/feeds/test', b'{}'.format(data))
