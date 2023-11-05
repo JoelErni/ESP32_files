@@ -7,6 +7,7 @@ import micropython
 import esp
 import random
 esp.osdebug(None)
+import json
 import temperature
 import gc
 gc.collect()
