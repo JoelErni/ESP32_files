@@ -7,7 +7,11 @@ import binascii
 import machine
 import time
 import network
+import json
     
+#Config_File
+config_file = json.load(open('config.json'))
+
 class ugit:
     # ugit
   # micropython OTA update from github
@@ -21,8 +25,8 @@ class ugit:
   #### -------------User Variables----------------####
   #### 
   # Default Network to connect using wificonnect()
-  ssid = "andoid5"
-  password = "jeppylinos"
+  ssid = config_file['network']['ssid']
+  password = config_file['network']['password']
 
   # CHANGE TO YOUR REPOSITORY INFO
   # Repository must be public if no personal access token is supplied
